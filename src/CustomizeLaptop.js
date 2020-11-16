@@ -10,7 +10,11 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
+
 class CustomizeLaptop extends React.Component{
+
+  state = { selected: {} };
+
 
   updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
@@ -19,6 +23,7 @@ class CustomizeLaptop extends React.Component{
       selected
     });
   };
+
 //////////////////////////////////////////////////////////////////
 
   render() {
@@ -66,7 +71,7 @@ class CustomizeLaptop extends React.Component{
       this.setState(
         prevState => ({ selected: prevState.selected })
       )
-    }
+    };
 }
 
 
