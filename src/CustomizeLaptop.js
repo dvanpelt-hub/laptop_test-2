@@ -4,6 +4,7 @@ import React from 'react';
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
+import './App.css';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -13,8 +14,13 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class CustomizeLaptop extends React.Component{
 
-  state = { selected: {} };
+  state = { selected: null };
 
+  selected = () => {
+      this.setState(
+        prevState => ({ selected: prevState.selected })
+      )
+    };
 
   updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
@@ -24,7 +30,6 @@ class CustomizeLaptop extends React.Component{
     });
   };
 
-//////////////////////////////////////////////////////////////////
 
   render() {
 
@@ -39,7 +44,7 @@ class CustomizeLaptop extends React.Component{
               id={itemHash}
               className="feature__option"
               name={slugify(feature)}
-              checked={item.name === this.state.selected[feature].name}
+              checked={this.state.selected != null && item.name === this.state.selected[feature].name}
               onChange={e => this.updateFeature(feature, item)}
             />
             <label htmlFor={itemHash} className="feature__label">
@@ -67,11 +72,6 @@ class CustomizeLaptop extends React.Component{
 
     )
   }
-  selected = () => {
-      this.setState(
-        prevState => ({ selected: prevState.selected })
-      )
-    };
 }
 
 
