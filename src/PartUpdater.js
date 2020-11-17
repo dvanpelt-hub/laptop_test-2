@@ -45,4 +45,4 @@ class UserCart extends React.Component{
   }
 }
 
-export default UserCart;
+export default PartUpdater;
