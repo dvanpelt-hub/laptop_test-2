@@ -3,14 +3,13 @@ import OptionSelector from './OptionSelector';
 
 class CustomizeLaptop extends React.Component{
 
-  state = { selected: null };
 
   render() {
 
     return(
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            <OptionSelector features={ this.props.features } />
+            <OptionSelector features={ this.props.features } selection={ this.props.selection }/>
             {console.log(this.props.features)}
           </form>
     )

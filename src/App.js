@@ -36,7 +36,7 @@ class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <CustomizeLaptop features={ FEATURES } />
+          <CustomizeLaptop features={ FEATURES } selection={this.props.selected}/>
           <UserCart features={ FEATURES }/>
         </main>
       </div>

@@ -14,7 +14,13 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class OptionSelector extends React.Component{
 
-  state = { selected: null };
+  constructor() {
+    super();
+    this.state = {
+      selected: null
+    }
+    this.updateFeature = this.updateFeature.bind(this);
+  }
 
   selected = () => {
       this.setState(prevState => ({ selected: prevState.selected })
