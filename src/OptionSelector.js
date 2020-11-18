@@ -17,8 +17,7 @@ class OptionSelector extends React.Component{
   state = { selected: null };
 
   selected = () => {
-      this.setState(
-        prevState => ({ selected: prevState.selected })
+      this.setState(prevState => ({ selected: prevState.selected })
       )
     };
 
