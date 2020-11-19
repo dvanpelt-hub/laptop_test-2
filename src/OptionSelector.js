@@ -34,13 +34,21 @@ class OptionSelector extends React.Component{
       selected
     });
   };
+  
+
 
   render() {
-    //
+    //features is composed of an object with four keys, each with two objects as values ex: (Processor: Array(2) --> "name: 17th Gen Intel Core etc." and "cost: 700")
     const features = Object.keys(this.props.features).map((feature, idx) => {
+      //featureHash is composed of ex: Processor-0. (name and index posit)
       const featureHash = feature + '-' + idx;
+      //console.log(featureHash);
+      //options is composed of 4 arrays of 2 objects each. contains type: "div" and key: "name": "17th-Generation-Intel" "cost": 700
       const options = this.props.features[feature].map(item => {
+
+        //itemHash is composed of "name": "ex: Professor-X-AMD" and "cost": 1200
         const itemHash = slugify(JSON.stringify(item));
+        //console.log(itemHash);
         return (
           <div key={itemHash} className="feature__item">
             <input
@@ -57,6 +65,7 @@ class OptionSelector extends React.Component{
           </div>
         );
       });
+      //console.log(options)
 
       return (
         <fieldset className="feature" key={featureHash}>
@@ -68,8 +77,7 @@ class OptionSelector extends React.Component{
       );
     });
 
-    console.log(features);
-
+    //console.log(features);
     return(
       <div>
         {features}
