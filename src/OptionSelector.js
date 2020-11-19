@@ -17,9 +17,9 @@ class OptionSelector extends React.Component{
   constructor() {
     super();
     this.state = {
-      selected: null
+      selected: null,
+      name: ""
     }
-    this.updateFeature = this.updateFeature.bind(this);
   }
 
   selected = () => {
@@ -36,7 +36,7 @@ class OptionSelector extends React.Component{
   };
 
   render() {
-
+    //
     const features = Object.keys(this.props.features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
       const options = this.props.features[feature].map(item => {
@@ -67,6 +67,8 @@ class OptionSelector extends React.Component{
         </fieldset>
       );
     });
+
+    console.log(features);
 
     return(
       <div>
