@@ -4,14 +4,13 @@ import TotalCost from './TotalCost';
 
 class UserCart extends React.Component{
 
-  state = { selected: {} };
 
   render() {
       
       return(
         <div>
-          <PartUpdater />
-          <TotalCost />
+          <PartUpdater selected={this.props.selected} />
+          <TotalCost selected={this.props.selected} />
         </div>
         
       )

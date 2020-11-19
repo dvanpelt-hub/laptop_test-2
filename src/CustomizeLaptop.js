@@ -10,7 +10,7 @@ class CustomizeLaptop extends React.Component{
             <h2>Customize your laptop</h2>
             <OptionSelector 
             features={ this.props.features }
-            handleUpdates={this.props.updateFeature} />
+            updateFeature={this.props.updateFeature}/>
           </form>
     )
   }

@@ -23,7 +23,7 @@ class OptionSelector extends React.Component{
   }
 
   selected = () => {
-      this.state(prevState => ({ selected: prevState.selected })
+      this.State(prevState => ({ selected: prevState.selected })
       )
     };
 

@@ -41,7 +41,6 @@ class App extends Component {
     });
   };
 
-  
 
   render() {
     return (
@@ -52,11 +51,13 @@ class App extends Component {
         <main>
           <CustomizeLaptop 
           features={ FEATURES } 
-          handleUpdates={this.updateFeature}
+          updateFeature={this.updateFeature}
           />
 
           <UserCart 
-          features={ FEATURES }/>
+          features={ FEATURES }
+          selected={this.state.selected}
+          />
         </main>
       </div>
     );

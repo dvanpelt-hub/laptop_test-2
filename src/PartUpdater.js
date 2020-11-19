@@ -7,11 +7,17 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class PartUpdater extends React.Component{
 
-  state = { selected: {} };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: {}
+    }
+  }
 
   render() {
     const summary = Object.keys(this.state.selected).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
+      console.log(featureHash);
       const selectedOption = this.state.selected[feature];
 
       return (
@@ -25,12 +31,12 @@ class PartUpdater extends React.Component{
       );
     });
       
-      return(
-        <section className="main__summary">
-          <h2>Your cart</h2>
-            {summary}
-        </section>
-      )
+    return(
+      <section className="main__summary">
+        <h2>Your cart</h2>
+          {summary}
+      </section>
+    )
   }
 }
 

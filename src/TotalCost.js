@@ -7,7 +7,12 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class TotalCost extends React.Component{
 
-  state = { selected: {} };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: {}
+    }
+  }
 
   render() {
 
