@@ -8,8 +8,10 @@ import FEATURES from './FEATURES';
 // easily convert numbers into US dollar values
 
 class App extends Component {
-  state = {
-    selected: {
+  constructor() {
+    super();
+    this.state={
+      selected: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
         cost: 700
@@ -27,7 +29,19 @@ class App extends Component {
         cost: 1500
       }
     }
+  }
+  this.updateFeature = this.updateFeature.bind(this);
+};
+
+  updateFeature = (feature, newValue) => {
+    const selected = Object.assign({}, this.state.selected);
+    selected[feature] = newValue;
+    this.setState({
+      selected
+    });
   };
+
+  
 
   render() {
     return (
@@ -36,8 +50,13 @@ class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <CustomizeLaptop features={ FEATURES } selection={this.props.selected}/>
-          <UserCart features={ FEATURES }/>
+          <CustomizeLaptop 
+          features={ FEATURES } 
+          handleUpdates={this.updateFeature}
+          />
+
+          <UserCart 
+          features={ FEATURES }/>
         </main>
       </div>
     );
