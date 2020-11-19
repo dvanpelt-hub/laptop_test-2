@@ -7,13 +7,6 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class TotalCost extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: {}
-    }
-  }
-
   render() {
 
     const total = Object.keys(this.state.selected).reduce(

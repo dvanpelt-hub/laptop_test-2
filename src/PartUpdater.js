@@ -7,18 +7,11 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class PartUpdater extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: {}
-    }
-  }
-
   render() {
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
+    const summary = Object.keys(this.props.selected).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
       console.log(featureHash);
-      const selectedOption = this.state.selected[feature];
+      const selectedOption = this.props.selected[feature];
 
       return (
         <div className="summary__option" key={featureHash}>

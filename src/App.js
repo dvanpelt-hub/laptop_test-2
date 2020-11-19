@@ -52,11 +52,12 @@ class App extends Component {
           <CustomizeLaptop 
           features={ FEATURES } 
           updateFeature={this.updateFeature}
+          selected={this.selected}
           />
 
           <UserCart 
           features={ FEATURES }
-          selected={this.state.selected}
+          selected={this.selected}
           />
         </main>
       </div>

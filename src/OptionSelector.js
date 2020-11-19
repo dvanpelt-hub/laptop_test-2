@@ -14,19 +14,6 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class OptionSelector extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: {},
-      name: ""
-    }
-  }
-
-  selected = () => {
-      this.State(prevState => ({ selected: prevState.selected })
-      )
-    };
-
   render() {
     //features is composed of an object with four keys, each with two objects as values ex: (Processor: Array(2) --> "name: 17th Gen Intel Core etc." and "cost: 700")
     const features = Object.keys(this.props.features).map((feature, idx) => {
@@ -35,7 +22,6 @@ class OptionSelector extends React.Component{
       //console.log(featureHash);
       //options is composed of 4 arrays of 2 objects each. contains type: "div" and key: "name": "17th-Generation-Intel" "cost": 700
       const options = this.props.features[feature].map(item => {
-
         //itemHash is composed of "name": "ex: Professor-X-AMD" and "cost": 1200
         const itemHash = slugify(JSON.stringify(item));
         //console.log(this.state.selected);
@@ -46,7 +32,7 @@ class OptionSelector extends React.Component{
               id={itemHash}
               className="feature__option"
               name={slugify(feature)}
-              checked={this.state.selected != null && this.state.selected[feature] != null && item.name === this.state.selected[feature].name}
+              checked={this.props.selected != null && this.props.selected[feature] != null && item.name === this.props.selected[feature].name}
               onChange={e => this.props.updateFeature(feature, item)}
             />
             <label htmlFor={itemHash} className="feature__label">
