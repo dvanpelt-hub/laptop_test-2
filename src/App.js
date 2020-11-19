@@ -41,7 +41,6 @@ class App extends Component {
     });
   };
 
-
   render() {
     return (
       <div className="App">
@@ -52,12 +51,12 @@ class App extends Component {
           <CustomizeLaptop 
           features={ FEATURES } 
           updateFeature={this.updateFeature}
-          selected={this.selected}
+          selected={this.state.selected}
           />
 
           <UserCart 
           features={ FEATURES }
-          selected={this.selected}
+          selected={this.state.selected}
           />
         </main>
       </div>
